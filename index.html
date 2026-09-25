@@ -210,12 +210,96 @@
 
             <div class="gallery">
 
-                <img src="imagens/imagensprojeto.png" alt="Projeto do móvel">
-
-                <img src="imagens/imagensprocesso.png" alt="Processo de construção">
-
-                <img src="imagens/imagensmovel.png" alt="Móvel finalizado">
-
+                <!-- PROJETO -->
+                <button class="gallery-card" type="button" data-modal="modal-projeto">
+                    <img src="imagens/imagensprojeto.png" alt="Projeto do móvel">
+            
+                    <span class="gallery-overlay">
+                        Ver projeto <b>↗</b>
+                    </span>
+                </button>
+            
+            
+                <!-- PROCESSO -->
+                <button class="gallery-card" type="button" data-modal="modal-processo">
+                    <img src="imagens/imagensprocesso.png" alt="Processo de construção">
+            
+                    <span class="gallery-overlay">
+                        Ver processo <b>↗</b>
+                    </span>
+                </button>
+            
+            
+                <!-- MÓVEL -->
+                <button class="gallery-card gallery-card-large" type="button" data-modal="modal-movel">
+                    <img src="imagens/imagensmovel.png" alt="Móvel finalizado">
+            
+                    <span class="gallery-overlay">
+                        Ver móvel <b>↗</b>
+                    </span>
+                </button>
+            
+            </div>
+            
+            
+            <!-- ========================= -->
+            <!-- MODAIS DAS IMAGENS -->
+            <!-- ========================= -->
+            
+            <!-- MODAL PROJETO -->
+            <div class="image-modal" id="modal-projeto">
+            
+                <button class="modal-close" type="button">
+                    ×
+                </button>
+            
+                <div class="modal-content">
+            
+                    <img
+                        src="imagens/imagensprojeto.png"
+                        alt="Projeto do móvel ampliado"
+                    >
+            
+                </div>
+            
+            </div>
+            
+            
+            <!-- MODAL PROCESSO -->
+            <div class="image-modal" id="modal-processo">
+            
+                <button class="modal-close" type="button">
+                    ×
+                </button>
+            
+                <div class="modal-content">
+            
+                    <img
+                        src="imagens/imagensprocesso.png"
+                        alt="Processo de construção ampliado"
+                    >
+            
+                </div>
+            
+            </div>
+            
+            
+            <!-- MODAL MÓVEL -->
+            <div class="image-modal" id="modal-movel">
+            
+                <button class="modal-close" type="button">
+                    ×
+                </button>
+            
+                <div class="modal-content">
+            
+                    <img
+                        src="imagens/imagensmovel.png"
+                        alt="Móvel finalizado ampliado"
+                    >
+            
+                </div>
+            
             </div>
 
         </section>

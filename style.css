@@ -439,3 +439,321 @@ footer span {
         gap: 25px;
     }
 }
+/* =========================================
+   GALERIA INTERATIVA
+========================================= */
+
+.gallery-card {
+    position: relative;
+    display: block;
+
+    width: 100%;
+    height: 350px;
+
+    padding: 0;
+    border: none;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    cursor: zoom-in;
+
+    text-align: left;
+
+    font: inherit;
+}
+
+
+/* Última imagem maior */
+
+.gallery-card-large {
+    grid-column: span 2;
+    height: 575px;
+}
+
+
+/* Imagem */
+
+.gallery-card img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transition: transform 0.45s ease;
+}
+
+
+/* Escurecimento ao passar o mouse */
+
+.gallery-card::after {
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(25, 22, 18, 0.60),
+        transparent 50%
+    );
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+}
+
+
+/* Zoom */
+
+.gallery-card:hover img {
+    transform: scale(1.03);
+}
+
+
+/* Overlay */
+
+.gallery-card:hover::after {
+    opacity: 1;
+}
+
+
+/* Texto "Ver projeto" */
+
+.gallery-overlay {
+    position: absolute;
+
+    z-index: 2;
+
+    left: 24px;
+    bottom: 20px;
+
+    color: white;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+    opacity: 0;
+
+    transform: translateY(8px);
+
+    transition: all 0.3s ease;
+}
+
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.gallery-overlay b {
+    margin-left: 7px;
+
+    font-size: 17px;
+
+    font-weight: 400;
+}
+
+
+/* =========================================
+   MODAL
+========================================= */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+
+.image-modal {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    background: rgba(20, 19, 17, 0.90);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+}
+
+
+/* Modal aberto */
+
+.image-modal.is-open {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* Área da imagem */
+
+.modal-content {
+
+    width: min(1200px, 94vw);
+
+    max-height: 90vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    transform: scale(0.97);
+
+    transition: transform 0.25s ease;
+}
+
+
+.image-modal.is-open .modal-content {
+
+    transform: scale(1);
+}
+
+
+/* Imagem ampliada */
+
+.modal-content img {
+
+    display: block;
+
+    max-width: 100%;
+
+    max-height: 88vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+
+    border-radius: 2px;
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================
+   BOTÃO X
+========================================= */
+
+.modal-close {
+
+    position: fixed;
+
+    top: 22px;
+    right: 28px;
+
+    z-index: 10000;
+
+    width: 46px;
+    height: 46px;
+
+    border: 1px solid rgba(255,255,255,0.35);
+
+    border-radius: 50%;
+
+    background: rgba(255,255,255,0.08);
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 31px;
+
+    font-weight: 200;
+
+    line-height: 40px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+
+/* Hover no X */
+
+.modal-close:hover {
+
+    background: #f5f1e9;
+
+    color: #292720;
+
+    transform: rotate(90deg);
+}
+
+
+/* =========================================
+   CELULAR
+========================================= */
+
+@media (max-width: 800px) {
+
+    .gallery-card,
+    .gallery-card-large {
+
+        grid-column: auto;
+
+        height: 350px;
+    }
+
+
+    .image-modal {
+
+        padding: 20px;
+    }
+
+
+    .modal-content {
+
+        width: 96vw;
+    }
+
+
+    .modal-content img {
+
+        max-height: 82vh;
+    }
+
+
+    .modal-close {
+
+        top: 14px;
+
+        right: 16px;
+
+        width: 42px;
+        height: 42px;
+
+        font-size: 28px;
+    }
+
+}
