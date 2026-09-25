@@ -1,27 +1,43 @@
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", function () {
 
-    // Todas as imagens clicáveis
+
+    /* =========================================
+       ELEMENTOS
+    ========================================= */
+
     const cards = document.querySelectorAll(".gallery-card");
 
-    // Todos os modais
     const modals = document.querySelectorAll(".image-modal");
+
 
 
     /* =========================================
        ABRIR IMAGEM
     ========================================= */
 
-    cards.forEach((card) => {
+    cards.forEach(function (card) {
 
-        card.addEventListener("click", () => {
+        card.addEventListener("click", function () {
 
-            const modalId = card.dataset.modal;
+            const modalId =
+                card.getAttribute("data-modal");
 
-            const modal = document.getElementById(modalId);
 
-            if (!modal) return;
+            const modal =
+                document.getElementById(modalId);
+
+
+            if (!modal) {
+                return;
+            }
+
+
+            /* Abre o modal */
 
             modal.classList.add("is-open");
+
+
+            /* Impede a página de rolar */
 
             document.body.classList.add("modal-open");
 
@@ -30,38 +46,50 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
     /* =========================================
-       FECHAR PELO X
+       FECHAR MODAIS
     ========================================= */
 
-    modals.forEach((modal) => {
+    modals.forEach(function (modal) {
+
 
         const closeButton =
             modal.querySelector(".modal-close");
 
 
-        closeButton.addEventListener("click", (event) => {
+
+        /* -----------------------------------------
+           BOTÃO X
+        ----------------------------------------- */
+
+        closeButton.addEventListener("click", function (event) {
 
             event.stopPropagation();
 
-            modal.classList.remove("is-open");
-
-            document.body.classList.remove("modal-open");
+            fecharModal(modal);
 
         });
 
 
-        /* =========================================
-           FECHAR CLICANDO FORA DA IMAGEM
-        ========================================= */
 
-        modal.addEventListener("click", (event) => {
+        /* -----------------------------------------
+           CLICAR FORA DA IMAGEM
+        ----------------------------------------- */
+
+        modal.addEventListener("click", function (event) {
+
+            /*
+                Se clicou no fundo escuro,
+                fecha o modal.
+
+                Se clicou na imagem,
+                não fecha.
+            */
 
             if (event.target === modal) {
 
-                modal.classList.remove("is-open");
-
-                document.body.classList.remove("modal-open");
+                fecharModal(modal);
 
             }
 
@@ -70,27 +98,47 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
+
     /* =========================================
-       FECHAR COM ESC
+       ESC
     ========================================= */
 
-    document.addEventListener("keydown", (event) => {
+    document.addEventListener("keydown", function (event) {
 
         if (event.key === "Escape") {
 
             const modalAberto =
                 document.querySelector(".image-modal.is-open");
 
+
             if (modalAberto) {
 
-                modalAberto.classList.remove("is-open");
-
-                document.body.classList.remove("modal-open");
+                fecharModal(modalAberto);
 
             }
 
         }
 
     });
+
+
+
+    /* =========================================
+       FUNÇÃO PARA FECHAR
+    ========================================= */
+
+    function fecharModal(modal) {
+
+        if (!modal) {
+            return;
+        }
+
+
+        modal.classList.remove("is-open");
+
+
+        document.body.classList.remove("modal-open");
+
+    }
 
 });
