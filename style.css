@@ -317,7 +317,7 @@ header {
 
 .gallery img:last-child {
     grid-column: span 2;
-    height: 500px;
+    height: 575px;
 }
 
 
