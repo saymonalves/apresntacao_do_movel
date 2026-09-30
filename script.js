@@ -1,95 +1,55 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    const imagens = document.querySelectorAll(".gallery-card");
 
-    /* =========================================
-       ELEMENTOS
-    ========================================= */
+    imagens.forEach(function (imagem) {
 
-    const cards = document.querySelectorAll(".gallery-card");
+        imagem.addEventListener("click", function () {
 
-    const modals = document.querySelectorAll(".image-modal");
+            const idModal = imagem.getAttribute("data-modal");
+            const modal = document.getElementById(idModal);
 
-
-
-    /* =========================================
-       ABRIR IMAGEM
-    ========================================= */
-
-    cards.forEach(function (card) {
-
-        card.addEventListener("click", function () {
-
-            const modalId =
-                card.getAttribute("data-modal");
-
-
-            const modal =
-                document.getElementById(modalId);
-
-
-            if (!modal) {
-                return;
+            if (modal) {
+                modal.classList.add("active");
+                document.body.classList.add("modal-open");
             }
-
-
-            /* Abre o modal */
-
-            modal.classList.add("is-open");
-
-
-            /* Impede a página de rolar */
-
-            document.body.classList.add("modal-open");
 
         });
 
     });
 
 
+    // Botões de fechar
+    const botoesFechar = document.querySelectorAll(".modal-close");
 
-    /* =========================================
-       FECHAR MODAIS
-    ========================================= */
+    botoesFechar.forEach(function (botao) {
 
-    modals.forEach(function (modal) {
+        botao.addEventListener("click", function () {
 
+            const modal = botao.closest(".image-modal");
 
-        const closeButton =
-            modal.querySelector(".modal-close");
+            if (modal) {
+                modal.classList.remove("active");
+            }
 
-
-
-        /* -----------------------------------------
-           BOTÃO X
-        ----------------------------------------- */
-
-        closeButton.addEventListener("click", function (event) {
-
-            event.stopPropagation();
-
-            fecharModal(modal);
+            document.body.classList.remove("modal-open");
 
         });
 
+    });
 
 
-        /* -----------------------------------------
-           CLICAR FORA DA IMAGEM
-        ----------------------------------------- */
+    // Fechar clicando no fundo escuro
+    const modais = document.querySelectorAll(".image-modal");
+
+    modais.forEach(function (modal) {
 
         modal.addEventListener("click", function (event) {
 
-            /*
-                Se clicou no fundo escuro,
-                fecha o modal.
-
-                Se clicou na imagem,
-                não fecha.
-            */
-
             if (event.target === modal) {
 
-                fecharModal(modal);
+                modal.classList.remove("active");
+                document.body.classList.remove("modal-open");
 
             }
 
@@ -98,47 +58,19 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-
-    /* =========================================
-       ESC
-    ========================================= */
-
+    // Fechar apertando ESC
     document.addEventListener("keydown", function (event) {
 
         if (event.key === "Escape") {
 
-            const modalAberto =
-                document.querySelector(".image-modal.is-open");
+            modais.forEach(function (modal) {
+                modal.classList.remove("active");
+            });
 
-
-            if (modalAberto) {
-
-                fecharModal(modalAberto);
-
-            }
+            document.body.classList.remove("modal-open");
 
         }
 
     });
-
-
-
-    /* =========================================
-       FUNÇÃO PARA FECHAR
-    ========================================= */
-
-    function fecharModal(modal) {
-
-        if (!modal) {
-            return;
-        }
-
-
-        modal.classList.remove("is-open");
-
-
-        document.body.classList.remove("modal-open");
-
-    }
 
 });

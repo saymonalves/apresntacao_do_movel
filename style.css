@@ -1,6 +1,4 @@
-/* =====================================================
-   CONFIGURAÇÕES GERAIS
-===================================================== */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@500;600;700&display=swap');
 
 * {
     margin: 0;
@@ -19,6 +17,10 @@ body {
     line-height: 1.6;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 img {
     max-width: 100%;
     display: block;
@@ -28,26 +30,22 @@ button {
     font-family: inherit;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
 
 /* =====================================================
-   CABEÇALHO
+   HEADER
 ===================================================== */
 
 header {
     width: 100%;
+    border-bottom: 1px solid #d8d1c7;
     background: #f2eee7;
 }
 
 .navbar {
     width: 90%;
-    max-width: 1400px;
+    max-width: 1300px;
     margin: auto;
-    padding: 30px 0;
+    min-height: 80px;
 
     display: flex;
     align-items: center;
@@ -55,7 +53,7 @@ header {
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: 700;
     letter-spacing: 2px;
 }
@@ -66,13 +64,14 @@ header {
 
 .menu {
     display: flex;
-    gap: 28px;
+    gap: 25px;
     list-style: none;
 }
 
 .menu a {
+    color: #24231f;
+    text-decoration: none;
     font-size: 14px;
-    font-weight: 500;
     transition: 0.3s;
 }
 
@@ -87,62 +86,55 @@ header {
 
 .hero {
     width: 90%;
-    max-width: 1400px;
+    max-width: 1300px;
     margin: auto;
-    min-height: 700px;
-    padding: 80px 0;
+    min-height: 650px;
 
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 70px;
+    gap: 60px;
+
     align-items: center;
 }
 
-.hero-text {
-    max-width: 650px;
-}
-
-.tag {
+.hero-text .tag {
     display: inline-block;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 
     font-size: 12px;
-    font-weight: 700;
     letter-spacing: 2px;
     color: #a87945;
+    font-weight: 700;
 }
 
 .hero h1 {
-    margin-bottom: 30px;
-
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(45px, 6vw, 82px);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(42px, 5vw, 75px);
     line-height: 1.05;
-    font-weight: 500;
+    margin-bottom: 30px;
 }
 
 .hero h1 strong {
-    font-weight: 700;
+    color: #a87945;
 }
 
 .hero p {
     max-width: 600px;
     margin-bottom: 18px;
-
-    color: #68645d;
-    font-size: 17px;
+    color: #68625a;
 }
 
 .btn {
     display: inline-block;
-    margin-top: 20px;
-    padding: 15px 25px;
+    margin-top: 15px;
+
+    padding: 14px 25px;
 
     background: #24231f;
     color: white;
 
-    font-size: 14px;
-    font-weight: 700;
+    text-decoration: none;
+    border-radius: 2px;
 
     transition: 0.3s;
 }
@@ -168,134 +160,105 @@ header {
 
 .section {
     width: 90%;
-    max-width: 1400px;
+    max-width: 1300px;
     margin: auto;
-    padding: 120px 0;
+    padding: 110px 0;
 }
 
 .section-title {
-    margin-bottom: 70px;
+    margin-bottom: 55px;
 }
 
 .section-title span {
-    display: block;
-    margin-bottom: 20px;
-
-    color: #a87945;
-
     font-size: 12px;
-    font-weight: 700;
     letter-spacing: 2px;
+    color: #a87945;
+    font-weight: 700;
 }
 
 .section-title h2 {
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(40px, 5vw, 70px);
+    font-family: "Playfair Display", serif;
+    font-size: clamp(38px, 5vw, 65px);
     line-height: 1.05;
-    font-weight: 500;
-}
-
-.section-title.light {
-    color: white;
+    margin-top: 12px;
 }
 
 
 /* =====================================================
-   SOBRE / DESAFIO / SOLUÇÃO
+   ABOUT
 ===================================================== */
 
 .about {
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-    gap: 80px;
+    gap: 70px;
     align-items: start;
 }
 
 .about p {
-    margin-bottom: 25px;
-    color: #68645d;
-    font-size: 18px;
-}
-
-.about strong {
-    color: #24231f;
+    color: #68625a;
+    margin-bottom: 20px;
 }
 
 .highlight {
-    padding: 45px;
-    background: #e4ddd1;
+    padding: 40px;
+    background: #e6dfd5;
 }
 
 .highlight span {
-    display: block;
-    margin-bottom: 20px;
-
-    color: #a87945;
-
     font-size: 11px;
-    font-weight: 700;
     letter-spacing: 2px;
+    color: #a87945;
+    font-weight: 700;
 }
 
 .highlight h3 {
-    margin-bottom: 20px;
-
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 42px;
+    font-family: "Playfair Display", serif;
+    font-size: 35px;
     line-height: 1.1;
-}
-
-.highlight p {
-    font-size: 15px;
+    margin: 15px 0;
 }
 
 
 /* =====================================================
-   CARDS / PROBLEMA
+   FEATURES
 ===================================================== */
 
 .features {
-    width: 90%;
-    max-width: 1400px;
-    margin: auto;
-
-    padding: 100px 0;
+    width: 100%;
+    padding: 100px 5%;
 
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    gap: 30px;
+
+    background: #e6dfd5;
 }
 
 .feature {
-    padding: 45px;
-    background: #e4ddd1;
+    padding: 30px;
+    border-top: 1px solid #a87945;
 }
 
 .feature > span {
-    display: block;
-    margin-bottom: 35px;
-
     color: #a87945;
-
-    font-size: 14px;
     font-weight: 700;
 }
 
 .feature h3 {
-    margin-bottom: 20px;
-
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 30px;
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    margin: 15px 0;
 }
 
 .feature p {
+    color: #68625a;
     margin-bottom: 15px;
-    color: #68645d;
 }
 
 
 /* =====================================================
-   MATERIAIS / TRÊS FUNÇÕES
+   MATERIAIS
 ===================================================== */
 
 .materials {
@@ -305,124 +268,93 @@ header {
 }
 
 .material {
-    padding: 40px;
-    border-top: 1px solid #bdb5a8;
+    padding: 35px;
+    background: #e6dfd5;
 }
 
 .number {
-    margin-bottom: 25px;
-
     color: #a87945;
-    font-size: 14px;
     font-weight: 700;
+    margin-bottom: 20px;
 }
 
 .material h3 {
-    margin-bottom: 15px;
-
-    font-family: "Playfair Display", Georgia, serif;
+    font-family: "Playfair Display", serif;
     font-size: 30px;
+    margin-bottom: 15px;
 }
 
 .material p {
-    color: #68645d;
+    color: #68625a;
 }
 
 
 /* =====================================================
-   IMAGEM GRANDE
+   WIDE IMAGE
 ===================================================== */
 
 .wide-image {
     width: 100%;
-    margin-top: 60px;
+    margin-top: 50px;
+    overflow: hidden;
 }
 
 .wide-image img {
     width: 100%;
-    max-height: 700px;
+    height: 600px;
     object-fit: cover;
 }
 
 
 /* =====================================================
-   SEÇÃO ESCURA
+   PROCESS
 ===================================================== */
 
 .process-section {
-    padding: 120px 5%;
+    width: 100%;
+    padding: 110px 5%;
 
     background: #24231f;
-    color: white;
+    color: #f2eee7;
+}
+
+.process-section .section-title h2 {
+    color: #f2eee7;
 }
 
 .process-section .about p {
     color: #bcb6ac;
 }
 
-.process-section .about strong {
-    color: white;
-}
-
 .process-section .highlight {
     background: #302e29;
 }
 
-.process-section .highlight p {
-    color: #bcb6ac;
-}
-
 
 /* =====================================================
-   ENCAIXE
-===================================================== */
-
-.process-section .highlight img {
-    width: 100%;
-    max-height: 400px;
-    margin-top: 20px;
-
-    object-fit: contain;
-}
-
-
-/* =====================================================
-   PASSOS / PROTÓTIPO
+   STEPS
 ===================================================== */
 
 .steps {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
+    gap: 30px;
 }
 
 .step {
-    padding-top: 30px;
-    border-top: 1px solid #68645d;
+    padding: 35px;
+    border: 1px solid #d8d1c7;
 }
 
-.step > span {
-    display: block;
-    margin-bottom: 25px;
-
-    color: #b58a59;
-    font-size: 14px;
+.step span {
+    color: #a87945;
     font-weight: 700;
 }
 
 .step h3 {
-    margin-bottom: 15px;
-
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: 32px;
-}
-
-.step p {
-    color: #bcb6ac;
-}
-
-.step strong {
-    color: white;
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    margin: 15px 0;
 }
 
 
@@ -443,9 +375,10 @@ header {
     min-height: 350px;
 
     padding: 0;
-    border: 0;
+    border: none;
 
     overflow: hidden;
+
     background: #ddd;
 
     cursor: pointer;
@@ -462,7 +395,7 @@ header {
 }
 
 .gallery-card:hover img {
-    transform: scale(1.04);
+    transform: scale(1.05);
 }
 
 .gallery-card-large {
@@ -476,81 +409,133 @@ header {
 
 .gallery-overlay {
     position: absolute;
+
     left: 0;
     bottom: 0;
 
     width: 100%;
+
     padding: 25px;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    color: white;
 
     background: linear-gradient(
         transparent,
         rgba(0, 0, 0, 0.8)
     );
 
-    color: white;
-
-    font-size: 15px;
-    font-weight: 500;
-
     text-align: left;
+
+    font-size: 16px;
 }
 
 .gallery-overlay b {
-    font-size: 22px;
+    float: right;
+    font-size: 20px;
 }
 
 
 /* =====================================================
-   MODAL DAS IMAGENS
+   MODAL — IMAGEM EM TELA CHEIA
 ===================================================== */
 
 .image-modal {
     position: fixed;
-    inset: 0;
-    z-index: 9999;
 
-    display: none;
+    top: 0;
+    left: 0;
+
+    width: 100vw;
+    height: 100vh;
+
+    background: rgba(0, 0, 0, 0.96);
+
+    display: flex;
+
     align-items: center;
     justify-content: center;
 
-    padding: 40px;
+    padding: 30px;
 
-    background: rgba(0, 0, 0, 0.9);
+    z-index: 999999;
+
+    opacity: 0;
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
 }
+
+
+/* QUANDO ABRIR */
 
 .image-modal.active {
-    display: flex;
+    opacity: 1;
+    visibility: visible;
+
+    pointer-events: auto;
 }
+
+
+/* IMAGEM DENTRO DO MODAL */
 
 .image-modal img {
-    max-width: 90%;
-    max-height: 90vh;
+    display: block;
+
+    width: auto;
+    height: auto;
+
+    max-width: 95vw;
+    max-height: 92vh;
 
     object-fit: contain;
+
+    margin: auto;
+
+    border-radius: 3px;
+
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
 }
+
+
+/* BOTÃO X */
 
 .modal-close {
     position: absolute;
-    top: 25px;
-    right: 30px;
 
-    width: 45px;
-    height: 45px;
+    top: 20px;
+    right: 25px;
 
-    border: 0;
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
     border-radius: 50%;
 
     background: white;
     color: #24231f;
 
-    font-size: 30px;
+    font-size: 38px;
     line-height: 1;
 
     cursor: pointer;
+
+    z-index: 1000000;
+
+    transition: 0.2s ease;
+}
+
+.modal-close:hover {
+    transform: scale(1.1);
 }
 
 
@@ -559,60 +544,60 @@ header {
 ===================================================== */
 
 .team {
-    padding: 120px 5%;
-    background: #e4ddd1;
+    width: 90%;
+    max-width: 1300px;
+
+    margin: auto;
+
+    padding: 110px 0;
+
     text-align: center;
 }
 
 .team > span {
-    display: block;
-    margin-bottom: 20px;
-
     color: #a87945;
-
     font-size: 12px;
-    font-weight: 700;
     letter-spacing: 2px;
+    font-weight: 700;
 }
 
 .team h2 {
-    margin-bottom: 20px;
-
-    font-family: "Playfair Display", Georgia, serif;
-    font-size: clamp(45px, 6vw, 75px);
-    line-height: 1.05;
+    font-family: "Playfair Display", serif;
+    font-size: 55px;
+    line-height: 1.1;
+    margin: 15px 0;
 }
 
 .team p {
-    margin-bottom: 30px;
-    color: #68645d;
+    color: #68625a;
 }
 
 .names {
+    margin-top: 40px;
+
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 30px;
 }
 
 .names strong {
-    padding: 10px 20px;
-
-    border: 1px solid #bdb5a8;
-
-    font-size: 14px;
+    padding: 15px 25px;
+    border: 1px solid #d8d1c7;
 }
 
 
 /* =====================================================
-   RODAPÉ
+   FOOTER
 ===================================================== */
 
 footer {
-    padding: 45px 5%;
+    width: 100%;
+
+    padding: 50px 5%;
 
     background: #24231f;
-    color: white;
+    color: #f2eee7;
 
     display: flex;
     align-items: center;
@@ -622,40 +607,37 @@ footer {
 }
 
 footer strong {
-    font-size: 16px;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
 }
 
 footer p {
-    margin-top: 5px;
     color: #bcb6ac;
-    font-size: 13px;
+    margin-top: 5px;
 }
 
 footer > span {
     color: #bcb6ac;
-    font-size: 13px;
+    font-size: 14px;
 }
 
 
 /* =====================================================
-   RESPONSIVIDADE — TABLET
+   RESPONSIVO
 ===================================================== */
 
 @media (max-width: 900px) {
 
     .menu {
-        gap: 15px;
+        gap: 12px;
     }
 
     .hero {
         grid-template-columns: 1fr;
-        padding: 60px 0;
+        padding: 70px 0;
     }
 
     .about {
         grid-template-columns: 1fr;
-        gap: 40px;
     }
 
     .features {
@@ -680,80 +662,38 @@ footer > span {
 
     footer {
         flex-direction: column;
-        align-items: flex-start;
+        text-align: center;
     }
 }
 
 
-/* =====================================================
-   RESPONSIVIDADE — CELULAR
-===================================================== */
-
-@media (max-width: 650px) {
+@media (max-width: 600px) {
 
     .navbar {
         flex-direction: column;
-        gap: 25px;
+        padding: 20px 0;
+        gap: 15px;
     }
 
     .menu {
-        width: 100%;
-
-        justify-content: center;
         flex-wrap: wrap;
-
-        gap: 12px 18px;
-    }
-
-    .hero {
-        width: 88%;
-        padding: 50px 0;
+        justify-content: center;
     }
 
     .hero h1 {
-        font-size: 45px;
-    }
-
-    .hero p {
-        font-size: 15px;
+        font-size: 42px;
     }
 
     .section {
-        width: 88%;
-        padding: 80px 0;
-    }
-
-    .section-title {
-        margin-bottom: 45px;
+        padding: 70px 0;
     }
 
     .section-title h2 {
         font-size: 42px;
     }
 
-    .features {
-        width: 88%;
-        padding: 70px 0;
-    }
-
-    .feature {
-        padding: 30px;
-    }
-
-    .highlight {
-        padding: 30px;
-    }
-
-    .highlight h3 {
-        font-size: 34px;
-    }
-
-    .material {
-        padding: 30px 0;
-    }
-
-    .process-section {
-        padding: 80px 6%;
+    .team h2 {
+        font-size: 42px;
     }
 
     .gallery-card,
@@ -767,23 +707,21 @@ footer > span {
     }
 
     .image-modal {
-        padding: 20px;
+        padding: 15px;
     }
 
     .image-modal img {
-        max-width: 100%;
+        max-width: 96vw;
+        max-height: 88vh;
     }
 
-    .team {
-        padding: 80px 6%;
-    }
+    .modal-close {
+        top: 10px;
+        right: 10px;
 
-    .names {
-        flex-direction: column;
-        align-items: center;
-    }
+        width: 45px;
+        height: 45px;
 
-    footer {
-        padding: 35px 6%;
+        font-size: 30px;
     }
 }
